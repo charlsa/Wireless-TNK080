@@ -1,0 +1,174 @@
+%bra paket
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[swedish]{babel}
+\usepackage{fancyhdr}
+%\usepackage{times}
+%\usepackage{alltt} %verbatim text med möjlighet till andra latexkommandon i.
+%\usepackage[usenames,dvipsnames]{color} %fler färger att välja på
+%\usepackage{wrapfig} %figurer som ligger sida vid sida med texten
+%\usepackage[table]{xcolor} %bakgrundsfärg i tabeller
+%\usepackage[small,compact]{titlesec} %Spara plats!!
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float} %gör så att man kan placera bilder exakt mha [H]
+%\usepackage[table]{xcolor} %bakgrundsfärg i tabeller
+
+%\usepackage[ddmmyyyy]{datetime}
+
+%\usepackage{setspace}
+\usepackage[usenames,dvipsnames]{color} %fler färger att välja på
+%\usepackage{pdfpages} %för att kunna använda includepdf i appendix
+
+% Different font in captions
+\newcommand{\captionfonts}{\em}
+\makeatletter  % Allow the use of @ in command names
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\captionfonts #1: #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\captionfonts #1: #2\par}
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+\makeatother   % Cancel the effect of \makeatletter
+
+
+%c++:
+\usepackage{listings}
+\definecolor{light-gray}{gray}{0.85}
+\lstset{
+language=TeX,                % choose the language of the code
+basicstyle=\ttfamily,       % the size of the fonts that are used for the code
+keywordstyle=\color{DarkOrchid},
+stringstyle=\color{blue},
+commentstyle=\color{OliveGreen},
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%stepnumber=2,                   % the step between two line-numbers. If it's 1 each line 
+                                % will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{light-gray},  % choose the background color. You must add \usepackage{color}
+%showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+%showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,	                % adds a frame around the code
+tabsize=1,	                % sets default tabsize
+%captionpos=b,                   % sets the caption-position to bottom
+%breaklines=true,                % sets automatic line breaking
+%breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+%title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+%escapeinside={\%*}{*)},         % if you want to add a comment within your code
+%morekeywords={*,...}            % if you want to add more keywords to the set
+%extendedchars=false
+xleftmargin=15pt,
+framexleftmargin=0pt,
+framexrightmargin=5pt
+}
+
+
+%marginaler
+\setlength\topmargin{0in}
+\setlength\headheight{11pt}
+\setlength\textheight{8.1in}
+\setlength\textwidth{6.5in}
+\setlength\oddsidemargin{0in}
+\setlength\evensidemargin{0in}
+\setlength\parindent{0in}
+\setlength\parskip{0in}
+\frenchspacing %Oui!
+
+%För att kunna typsätta delar för sig!
+\newcommand{\master}{}
+
+%då kör vi
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%% Försättsblad %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\title{\textbf{Electric lab-assistant} \\
+\Large{Engineering Applications using Matlab}\\
+\large{TNG016}}
+\author{
+\vspace{30pt}\\
+\large
+ED3:\bigskip \\
+\begin{tabular}{l l}
+	Dan	Helgesson & danhe046 \\
+	Albert Skog	& albsk635 \\
+	Karl Westerberg	& karwe772 \\
+\end{tabular}\vspace{40pt}\\
+Examiner: Qingxiang Zhao 
+}
+\date{Submitted: \today}
+\maketitle
+\thispagestyle{empty}
+\begin{center}
+
+
+\begin{figure}[b]
+	\begin{center}
+		\includegraphics[scale=0.6]{Figure/LIU-logo.jpg}
+	\end{center}
+\end{figure}
+
+\end{center}
+
+\end{titlepage}
+\clearpage \thispagestyle{empty} ~\clearpage %baksida av försättsblad
+
+%%%%%%%%%%%%%%%%%%% Header %%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhead[l]{Engineering Applications using Matlab\\Electric Lab-Assistant}
+\fancyhead[r]{Dan Helgesson, Albert Skog\\ \& Karl Westerberg}
+\fancyfoot[c]{}
+
+%%%%%%%%%%%%%%%%%% Abstract %%%%%%%%%%%%%%%%%%%%%%
+\onecolumn
+\begin{abstract}
+For engineers, scholars and researchers, Matlab is one of the common tools for calculation and simulation. This report investigates the possibility of using Matlab to connect lab equipment for electronics with a personal computer, and thus streamlining lab work and documentation. The result is a software that clearly shows the possibilities are real, and that with minor further development could be used for actual lab work.
+\end{abstract}
+\clearpage
+%%%%%%%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\clearpage
+\setcounter{page}{1}
+\fancyfoot[c]{\thepage}
+\twocolumn
+
+
+%%%%%%%%%%%%%%%%%% Rapporten %%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+\input{introduction}
+
+\section{Lab-Assistant}
+The user interface of Lab-Assistant (Appendix \ref{ui}) is designed to be intuitive and user-friendly. When launched the user is met by three empty columns, each with a popup-menu at the top. The columns are called \emph{input}, \emph{output} and \emph{export}, each with a set of 3-4 different options. Using different combinations of these options, a variety of tasks can be performed.
+
+\input{inputs}
+\input{outputs}
+\input{exports}
+
+\input{exampel}
+
+\section{Conclusion}
+\input{conclusion}
+
+\onecolumn
+\appendix
+\section{Sample LaTeX output}
+\label{output}
+\lstinputlisting{report.tex}
+\clearpage
+\section{User Interface}
+\label{ui}
+\centering
+\includegraphics[width=16cm]{Figure/startup.png}
+
+
+\end{document}
