@@ -8,7 +8,7 @@ fc     = 5e9; %center frequency
 carriers = 52;
 
 Bw     = 20e6;
-PtGtGr = 10;
+PtGtGr = 0.1;
 lambda = c./((fc-Bw/2)+Bw/carriers/2:Bw/carriers:(fc+Bw/2)-Bw/carriers/2);
 L      = 1;
 
@@ -58,12 +58,12 @@ SNR = Pr2 ./ N;
 disp SNR:
 disp(SNR);
 
-%shannon capacity
+%shannon capacity per channel per user
 C = Bw/52 * log2(1 + SNR);
 disp c:
 disp(C)
 
-%Sum per user
+%Sum per user per channel
 throughput = points;
 for i = 1:users
     throughput(i,3) = sum(C(i,:));
