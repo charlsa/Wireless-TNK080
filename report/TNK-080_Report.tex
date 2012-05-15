@@ -90,9 +90,10 @@ framexrightmargin=5pt
 \begin{document}
 %%%%%%%%%%%%%%%%%%% Försättsblad %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{titlepage}
-\title{\textbf{Electric lab-assistant} \\
-\Large{Engineering Applications using Matlab}\\
-\large{TNG016}}
+\title{\textbf{Understanding basics of} \\
+\textbf{OFDMA \& Cell edges}\\
+\Large{Wireless Communication Systems}\\
+\large{TNK080}}
 \author{
 \vspace{30pt}\\
 \large
@@ -101,8 +102,9 @@ ED3:\bigskip \\
 	Dan	Helgesson & danhe046 \\
 	Albert Skog	& albsk635 \\
 	Karl Westerberg	& karwe772 \\
+	Aron Grundberg	& arogu???\\
 \end{tabular}\vspace{40pt}\\
-Examiner: Qingxiang Zhao 
+Examiner: Vangelis Angelakis 
 }
 \date{Submitted: \today}
 \maketitle
@@ -150,6 +152,20 @@ asd
 \subsection{Hypothesis}
 
 \section{Method}
+Firstly the 100 users was randomly placed within the circle. The distance from origo is needed for the power received calculationand is calculated by the well known Pythagorean theorem. The power received shown in equ. \eqref{power}  is calculated once for each subcarrier. The only thing that varies in this case is the wavelenght for each center frequency.
+
+\begin{equation}
+\label{power}
+P_r(d)=\frac{P_rG_tG_r\lambda^2}{(4\pi)^2d^2L}
+\end{equation}
+
+A fading is added for each subcarrier for each user. The fading is added because nothing is ideal.%mer text?
+To calculate the capacity the Shannon formula in equ. \eqref{shannon} was used. The SNR was computed from the $P_r$ and the noise $N$.
+
+\begin{equation}
+\label{shannon}
+C=B_wlag_2(1+SNR)
+\end{equation}
 
 \section{Results}
 
