@@ -17,14 +17,14 @@ T      = 290;      %Temp in Kelvin
 N      = K*T*Bw;   %Noise
 
 %get user coordinates
-points = generate_users(users, radius);
+%points = generate_users(users, radius);
 
 %plot circle
 circle(0,0,radius);
 hold on;
 circle(2*radius,0,radius);
 %plot users
-plot(points(:,1), points(:,2),'k+');
+%plot(points(:,1), points(:,2),'k+');
 axis equal;
 xlim([-radius-10 3*radius+10]);
 ylim([-radius-10 radius+10]);
@@ -61,12 +61,12 @@ disp(Pr2);
 
 %Add fading (what is this product called?)
 %Prf = Pr.* random('Rayleigh', 0.75, users, carriers);
-Prf = (Pr-Pr2).* random('Rayleigh', 0.75, users, carriers); %before rand?
+Prf = Pr .* random('Rayleigh', 0.75, users, carriers); %before rand?
 disp 'Pr * Rayleigh:'
 disp(Prf);
 
 %Calculate SNR
-SNR = Prf ./ N;
+SNR = Prf ./ (Pr2 + N);
 disp SNR:
 disp(SNR);
 
