@@ -4,6 +4,8 @@
 	\documentclass[twocolumn]{article}
 	%\input{../preamble}
 	\usepackage{graphicx}
+	\usepackage{float}
+
 	\begin{document}
 \fi
 
@@ -16,31 +18,27 @@ In the first simulation, the users with the lowest throughput appeared at the ce
 \label{fig:task1}
 \end{figure}
 
-Introducing the second BS, the users with the lowest throughput were instead the ones near 
+Introducing the second BS, the users with the lowest throughput were instead the ones near the boundary between the cells. In figure \ref{fig:task2} the same users and fading is used, but with the power from the second cell added as noise. 
 
 \begin{figure}[H]
 \centering
 \fbox{\includegraphics[trim=140 335 155 330, clip=true, width=8cm]{Figure/fig2.pdf}}
 \caption{Simulation with one neighbouring cell.}
-\label{fig:task1}
+\label{fig:task2}
 \end{figure}
+
+In each of the two simulations the average throughput per user was calculated. The difference between the two cases is quite large, as presented in table \ref{tab:tp}. 
 
 \begin{table}[H]
 \centering
 \caption{Average throughput results.}
 \label{tab:tp}
-\begin{tabular}{r l}
+\begin{tabular}{r r}
 Simulation & Throughput \\ \hline
-Task 1 & 2.5771 Mbps \\
-Task 2 & 0.7262 Mbps
+Task 1 & 25.771 Mbps \\
+Task 2 & 7.262 Mbps
 \end{tabular}
 \end{table}
-
-
-
-
-
-
 
 
 \ifdefined\master
