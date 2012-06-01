@@ -161,6 +161,7 @@ The problem was visualized in a MatLab-generated plot and the 5 users with worst
 \subsection{Hypothesis}
 The users with the worst throughput would be expected to be the users farthest out in the case of no interference, with some variance due to the randomness of fading. In the interference case the users closest to the other base station was expected to have the worst throughput.
 \section{Method}
+In this project a free space model was used.
 Firstly the 100 users was randomly placed within the circle. The distance from origo is needed for the power received calculationand is calculated by the well known Pythagorean theorem. The power received shown in equ. \eqref{power}  is calculated once for each subcarrier. The only thing that varies in this case is the wavelenght for each center frequency.
 
 \begin{equation}
@@ -168,8 +169,14 @@ Firstly the 100 users was randomly placed within the circle. The distance from o
 P_r(d)=\frac{P_rG_tG_r\lambda^2}{(4\pi)^2d^2L}
 \end{equation}
 
-A fading is added for each subcarrier for each user. The fading is added because nothing is ideal.%mer text?
+A fading is added for each subcarrier for each user. The fading is added because nothing is ideal. The model used for the shading was rayleight.
 To calculate the capacity the Shannon formula in \eqref{shannon} was used. The SNR was computed from the $P_r$ and the noise $N$.
+The capacity for all the subcarriers was summed for each user to get the total capacity per user.
+
+The capacity is greatly changed when a second basestation is added 2km from the original one.
+The signal received from the 2nd station is seen as noise for the users.
+Therefore the 2nd station will make the capacity decrease for each users, specially close to the 2nd station.
+The calculations is the same exept for the extra noise.
 
 \begin{equation}
 \label{shannon}
