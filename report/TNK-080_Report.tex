@@ -99,8 +99,8 @@ framexrightmargin=5pt
 \large
 ED3:\bigskip \\
 \begin{tabular}{l l}
-	Dan	Helgesson & danhe046 \\
-	Albert Skog	& albsk635 \\
+	Dan	Helgesson 	& danhe046 \\
+	Albert Skog		& albsk635 \\
 	Karl Westerberg	& karwe772 \\
 	Aron Grundberg	& arogr832\\
 \end{tabular}\vspace{40pt}\\
@@ -125,34 +125,19 @@ Examiner: Vangelis Angelakis
 
 %%%%%%%%%%%%%%%%%%% Header %%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}
-\fancyhead[l]{Understanding basics of OFDMA \& Cell edges}
-\fancyhead[r]{Dan Helgesson, Albert Skog, Karl Westerberg}
+\fancyhead[l]{Understanding basics of\\ OFDMA \& Cell edges}
+\fancyhead[r]{Dan Helgesson, Albert Skog,\\ Aron Grundberg \& Karl Westerberg}
 \fancyfoot[c]{}
-
-%%%%%%%%%%%%%%%%%% Abstract %%%%%%%%%%%%%%%%%%%%%%
-\onecolumn
-\begin{abstract}
-asd
-\end{abstract}
-\clearpage
-%%%%%%%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%%%%%
-
-\tableofcontents
-\clearpage
-\setcounter{page}{1}
-\fancyfoot[c]{\thepage}
-\twocolumn
-
 
 %%%%%%%%%%%%%%%%%% Rapporten %%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-Orthogonal Frequency-Division Multiple Access (OFDMA) is a multi-user version of the digital modulation scheme Orthogonal Frequency-Division Multiplexing (OFDM) used in several 4G cell networks and mobile broadband standards. The idea is to transform a high data rate stream into a set of low data rate streams that are transmitted in parallel. The following report demonstrates a simple example of a throughput simulation using OFDMA with round-robin protocol,%REFERENS
+Orthogonal Frequency-Division Multiple Access (OFDMA) is a multi-user version of the digital modulation scheme Orthogonal Frequency-Division Multiplexing (OFDM) used in several 4G cell networks and mobile broadband standards. The idea is to transform a high data rate stream into a set of low data rate streams that are transmitted in parallel. The following report demonstrates a simple example of a throughput simulation using OFDMA with round-robin protocol,  %REFERENS
  meaning that all parallel data streams (sub-carriers) are dedicated to one user at the time. The problem was visualized simulating a single cell (one Base Station) of 1000m radius and 100 randomly placed users, and for two cells taking interference into account.
 
 
 
 \subsection{Purpose}
-The purpose was to simulate and comapre the throughput for users served by a single base station in the case of no interference and the case of one interfering base station 2000m away. For each sub-carrier and user the path loss was calculated using frii's free space path loss model, and a rayleigh distributed random variable as the fading factor.
+The purpose was to simulate and comapre the throughput for users served by a single base station in the case of no interference and the case of one interfering base station 2000m away. For each sub-carrier and user the path loss was calculated using Frii's free space path loss model, and a rayleigh distributed random variable as the fading factor.
 
 
 \subsection{Methodology}
@@ -172,7 +157,8 @@ P_r(d)=\frac{P_rG_tG_r\lambda^2}{(4\pi)^2d^2L}
 A fading is added for each subcarrier for each user. The fading is added because nothing is ideal. The model used for the shading was rayleight.
 To calculate the capacity the Shannon formula in \eqref{shannon} was used. The SNR was computed from the $P_r$ and the noise $N$.
 The capacity for all the subcarriers was summed for each user to get the total capacity per user.
-
+\\
+\\
 The capacity is greatly changed when a second basestation is added 2km from the original one.
 The signal received from the 2nd station is seen as noise for the users.
 Therefore the 2nd station will make the capacity decrease for each users, specially close to the 2nd station.
@@ -180,7 +166,7 @@ The calculations is the same exept for the extra noise.
 
 \begin{equation}
 \label{shannon}
-C=BW~ln(1+SNR)
+C=BW~log_2(1+SNR)
 \end{equation}
 
 \section{Results}
