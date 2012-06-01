@@ -1,0 +1,17 @@
+%Om filen typsätts som del av hela rapporten så finns \master definierat i början och ingen \begin{document} och \end{document} får finnas, men för att kunna typsätta filen för sig är dem ett måste! \newcommand{\master}{} krävs i början på huvudrapporten!
+\ifdefined\master
+\else
+	\documentclass[twocolumn]{article}
+	\begin{document}
+\fi
+
+In the first case the results is shown that the user with the lowest throughput is obtained near the edge of the circle, according to the distance $d$ in equation \ref{power}. In figurer \ref{} the random noise is shown in some cases that the users is located whit a shorter distance to the base station.\\
+\\
+The second task the expectation was to see a change of the location to be between the two base stations. That is because the power from the second base station will interference the received power at the user according to the SINR-equation \ref{}.\\
+\\
+The result of the second task shows the importance of the positioning of base stations in a network. If a user get a low throughput. It dose not help to add a base station to a network without simulation and calculations.    
+
+\ifdefined\master
+\else
+	\end{document}
+\fi
