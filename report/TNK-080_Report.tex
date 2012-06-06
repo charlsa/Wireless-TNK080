@@ -132,29 +132,32 @@ Examiner: Vangelis Angelakis
 %%%%%%%%%%%%%%%%%% Rapporten %%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 Orthogonal Frequency-Division Multiple Access (OFDMA) is a multi-user version of the digital modulation scheme Orthogonal Frequency-Division Multiplexing (OFDM) used in several 4G cell networks and mobile broadband standards. The idea is to transform a high data rate stream into a set of low data rate streams that are transmitted in parallel. The following report demonstrates a simple example of a throughput simulation using OFDMA with round-robin protocol,  %REFERENS
- meaning that all parallel data streams (sub-carriers) are dedicated to one user at the time. The problem was visualized simulating a single cell (one Base Station) of 1000m radius and 100 randomly placed users, and for two cells taking interference into account.
+ meaning that all parallel data streams (sub-carriers) are dedicated to one user at the time. The problem is visualized simulating a single cell (one Base Station) of 1000m radius and 100 randomly placed users, and for two cells taking interference into account.
 
 
 
 \subsection{Purpose}
-The purpose was to simulate and comapre the throughput for users served by a single base station in the case of no interference and the case of one interfering base station 2000m away. For each sub-carrier and user the path loss was calculated using Frii's free space path loss model, and a rayleigh distributed random variable as the fading factor.
+The purpose is to simulate and comapre the throughput for users served by a single base station in the case of no interference and the case of one interfering base station 2000m away. For each sub-carrier and user the path loss is calculated using Frii's free space path loss model, and a rayleigh distributed random variable as the fading factor.
 
 
 \subsection{Methodology}
-The problem was visualized in a MatLab-generated plot and the 5 users with worst throughput was indicated.
+The problem is visualized in a MatLab-generated plot and the 5 users with worst throughput was indicated.
 
 \subsection{Hypothesis}
-The users with the worst throughput would be expected to be the users farthest out in the case of no interference, with some variance due to the randomness of fading. In the interference case the users closest to the other base station was expected to have the worst throughput.
+The users with the worst throughput would be expected to be the users farthest out in the case of no interference, with some variance due to the randomness of fading. In the interference case the users closest to the other base station is expected to have the worst throughput.
+
 \section{Method}
-In this project a free space model was used.
-Firstly the 100 users was randomly placed within the circle. The distance from origo is needed for the power received calculationand is calculated by the well known Pythagorean theorem. The power received shown in equ. \eqref{power}  is calculated once for each subcarrier. The only thing that varies in this case is the wavelenght for each center frequency.
+In this project a free space model is used.
+Firstly the 100 users is randomly placed within the circle. The distance from origo is needed for the power received calculation and is calculated by the well known Pythagorean theorem. The power received shown in equ. \eqref{power}  is calculated once for each subcarrier. The only thing that varies in this case is the wavelenght for each center frequency.
 
 \begin{equation}
 \label{power}
-P_r(d)=\frac{P_rG_tG_r\lambda^2}{(4\pi)^2d^2L}
+P_r(d)=\frac{P_tG_tG_r\lambda^2}{(4\pi)^2d^2L}
 \end{equation}
 
-A fading is added for each subcarrier for each user. The fading is added because nothing is ideal. The model used for the shading was rayleight.
+Were $P_t$ is the transmitted power of the antenna, $G_r$ \& $G_t$ is the gain of the antenna and the resever and $L$ is the path loss factor which is set to 1 in accordance to basic path loss.\\
+
+A fading is added for each subcarrier for each user. The fading is added because nothing is ideal. The model used for the shading is rayleight distributed.
 To calculate the capacity the Shannon formula in \eqref{shannon} was used. The SNR was computed from the $P_r$ and the noise $N$.
 The capacity for all the subcarriers was summed for each user to get the total capacity per user.
 \\
@@ -168,6 +171,7 @@ The calculations is the same exept for the extra noise.
 \label{shannon}
 C=BW~log_2(1+SNR)
 \end{equation}
+Were $BW$ is the bandwidth and $log_2$ is the logaritm with base of $2^n$
 
 \section{Results}
 
